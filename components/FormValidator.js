@@ -56,7 +56,7 @@ class FormValidator {
     errorEl.classList.remove(this._errorClass);
   }
 
-  _setEventListeners(settings) {
+  _setEventListeners() {
     this._inputList = Array.from(
       this._formEl.querySelectorAll(this._inputSelector)
     );
@@ -78,7 +78,7 @@ class FormValidator {
     this._formEl.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });
-    this.setEventListeners(this._settings);
+    this._setEventListeners();
   }
 
   resetValidation() {

@@ -25,7 +25,6 @@ const generateTodo = (data) => {
   const todoElement = todo.getView();
   return todoElement;
 
-  // To be removed:
   // const todoElement = todoTemplate.content
   //   .querySelector(".todo")
   //   .cloneNode(true);
