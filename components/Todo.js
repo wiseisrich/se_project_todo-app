@@ -21,17 +21,14 @@ class Todo {
   }
 
   _generateDateEl() {
-    this._generateDateEl = this._todoElement.querySelector(".todo__date");
+    this._dateEl = this._todoElement.querySelector(".todo__date");
     const dueDate = new Date(this._data.date);
-    if (!isNaN(this._dueDate)) {
-      this._todoDate.textContent = `Due: ${this._dueDate.toLocaleString(
-        "en-US",
-        {
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        }
-      )}`;
+    if (!isNaN(dueDate)) {
+      this._dateEl.textContent = `Due: ${dueDate.toLocaleString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      })}`;
     }
   }
 
