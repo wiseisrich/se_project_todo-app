@@ -3,8 +3,8 @@ class Popup {
     this._popupElement = document.querySelector(popupSelector);
   }
 
-  _handleEscapeClose() {
-    if (Evt.key === "Escape") {
+  _handleEscapeClose(evt) {
+    if (evt.key === "Escape") {
       this.close();
     }
   }

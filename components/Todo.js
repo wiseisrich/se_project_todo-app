@@ -2,7 +2,7 @@ class Todo {
   constructor(data, selector, handleCheck, _handleDelete) {
     this._completed = data.completed;
     this._name = data.name;
-    this._data = data.date;
+    this._date = data.date;
     this._id = data.id;
     this._selector = selector;
     this._handleCheck = handleCheck;
@@ -14,7 +14,7 @@ class Todo {
       this._handleDelete(this._completed);
       this._remove();
     });
-    this._chckBoxEl.addEventListener("change", () => {
+    this._todoCheckboxEl.addEventListener("change", () => {
       this._toggleCompletion();
       this._handleCheck(this._completed);
     });
@@ -29,12 +29,12 @@ class Todo {
 
   _generateNameEl() {
     this._nameEl = this._todoElement.querySelector(".todo__name");
-    this._nameEl.textContent = this._data.name;
+    this._nameEl.textContent = this._name;
   }
 
   _generateDateEl() {
     this._dateEl = this._todoElement.querySelector(".todo__date");
-    const dueDate = new Date(this._data.date);
+    const dueDate = new Date(this._date);
     if (!isNaN(dueDate)) {
       this._dateEl.textContent = `Due: ${dueDate.toLocaleString("en-US", {
         year: "numeric",
@@ -47,9 +47,9 @@ class Todo {
   _generateCheckboxEl() {
     this._todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
     this._todoLabel = this._todoElement.querySelector(".todo__label");
-    this._todoCheckboxEl.checked = this._data.completed;
-    this._todoCheckboxEl.id = "todo-${this._data.id}";
-    this._todoLabel.setAttribute("for", "todo-${this._data.id}");
+    this._todoCheckboxEl.checked = this._completed;
+    this._todoCheckboxEl.id = `todo-${this._id}`;
+    this._todoLabel.setAttribute("for", `todo-${this._id}`);
   }
 
   _toggleCompletion = () => {
