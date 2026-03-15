@@ -1,12 +1,12 @@
 class Todo {
-  constructor(data, selector, handleCheck, _handleDelete) {
+  constructor(data, selector, handleCheck, handleDelete) {
     this._completed = data.completed;
     this._name = data.name;
     this._date = data.date;
     this._id = data.id;
     this._selector = selector;
     this._handleCheck = handleCheck;
-    this._handleDelete = _handleDelete;
+    this._handleDelete = handleDelete;
   }
 
   _setEventListeners() {
